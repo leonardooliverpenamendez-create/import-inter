@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import-Inter | Cafeteras Portátiles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+        body { font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; overflow-x: hidden; margin: 0; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://drive.google.com/thumbnail?id=1_lyi6pE_7j0gLtL_bIf9qpcLisThEd1U&sz=w1920');
+            background-color: #1c1917; background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 600px;
+        }
+        section { scroll-margin-top: 80px; }
+        .logo-img { height: 50px; width: auto; object-fit: contain; }
+        .color-dot { width: 28px; height: 28px; border-radius: 50%; cursor: pointer; transition: all 0.3s ease; border: 3px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .color-dot:hover { transform: scale(1.2); }
+        .color-dot.active { border-color: #b45309; transform: scale(1.1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        #ai-result h3 { font-size: 1.2rem; font-weight: 700; color: #1c1917; margin-bottom: 0.5rem; }
+        #ai-result p { color: #44403c; margin-bottom: 0.5rem; line-height: 1.6; }
+        #ai-result ul { list-style: disc; padding-left: 1.2rem; color: #44403c; }
+        #ai-result li { margin-bottom: 0.25rem; }
+        @keyframes pulse-wa {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 12px rgba(34,197,94,0); }
+        }
+        #whatsapp-btn { animation: pulse-wa 2s infinite; }
+        #whatsapp-btn:hover { animation: none; transform: scale(1.1); }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+
+    <!-- NAVEGACIÓN -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <img src="https://drive.google.com/thumbnail?id=1hnIEHyDa9exXI7LEUd2wTYBFjZ04zuLY&sz=w100" alt="Logo Import-Inter" class="logo-img">
+                    <span class="font-bold text-xl tracking-wider text-stone-900 hidden sm:block">IMPORT-INTER</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <button onclick="scrollToSection('beneficios')" class="text-stone-600 hover:text-amber-700 font-medium transition">Beneficios</button>
+                    <button onclick="scrollToSection('como-funciona')" class="text-stone-600 hover:text-amber-700 font-medium transition">¿Cómo funciona?</button>
+                    <button onclick="scrollToSection('modelos')" class="text-stone-600 hover:text-amber-700 font-medium transition">Modelos</button>
+                    <button onclick="scrollToSection('barista')" class="text-stone-600 hover:text-amber-700 font-medium transition">Barista Virtual</button>
+                </div>
+                <a href="https://wa.me/59163516131?text=Hola,%20estoy%20interesado%20en%20las%20cafeteras" target="_blank" class="bg-amber-700 hover:bg-amber-800 text-white px-5 py-2 rounded-full font-medium transition shadow-lg text-sm">Comprar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero-bg flex items-center justify-center pt-20">
+        <div class="text-center px-4 max-w-4xl mx-auto text-white py-24">
+            <span class="uppercase tracking-[0.3em] text-sm font-semibold mb-4 block text-amber-300">Libertad en cada sorbo</span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Tu café favorito, <br>dondequiera que vayas.</h1>
+            <p class="text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto opacity-90">Descubre la cafetera portátil definitiva. Un espresso con crema perfecta para la oficina, el auto, la montaña o la ciudad.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="scrollToSection('modelos')" class="bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 rounded-full font-bold text-lg transition shadow-xl">Ver Catálogo</button>
+                <button onclick="scrollToSection('como-funciona')" class="bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/50 text-white px-8 py-4 rounded-full font-bold text-lg transition">¿Cómo funciona?</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section id="beneficios" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-stone-900 mb-4">El compañero ideal para tu rutina</h2>
+            <div class="w-24 h-1 bg-amber-700 mx-auto rounded-full mb-16"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
+                    <img src="https://drive.google.com/thumbnail?id=1Hxvv0kHTsJ4Hm8-d_TeyDRw73ZsJ3WXl&sz=w600" class="w-full h-48 object-cover">
+                    <div class="p-6"><h3 class="text-xl font-bold mb-2">En la Oficina</h3><p class="text-stone-600 text-sm leading-relaxed">Olvida el café de máquina. Prepara un espresso de alta calidad en tu escritorio sin interrumpir tu flujo de trabajo.</p></div>
+                </div>
+                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
+                    <img src="https://drive.google.com/thumbnail?id=1R1DB9_muFnAd2LLc8DFHxWXyB8junNkL&sz=w600" class="w-full h-48 object-cover">
+                    <div class="p-6"><h3 class="text-xl font-bold mb-2">En el Auto</h3><p class="text-stone-600 text-sm leading-relaxed">Diseñada para encajar perfectamente en el portavasos. Tu mejor aliado para convertir el tráfico en un momento de placer.</p></div>
+                </div>
+                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
+                    <img src="https://drive.google.com/thumbnail?id=1famr6SBQxrOEWRdC2a_5DvNxc2Kh48n0&sz=w600" class="w-full h-48 object-cover">
+                    <div class="p-6"><h3 class="text-xl font-bold mb-2">En Movimiento</h3><p class="text-stone-600 text-sm leading-relaxed">Ultra ligera y compacta. Llévala en tu mochila al gimnasio, en bici o caminando por la ciudad sin que ocupe espacio.</p></div>
+                </div>
+                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
+                    <img src="https://drive.google.com/thumbnail?id=1Vdi9Ok5xnXhMKkN792IHxxWEao_daO_p&sz=w600" class="w-full h-48 object-cover">
+                    <div class="p-6"><h3 class="text-xl font-bold mb-2">En la Naturaleza</h3><p class="text-stone-600 text-sm leading-relaxed">No sacrifiques el sabor en tus aventuras. Energía pura para tus rutas en la montaña con la presión de una máquina profesional.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <section id="como-funciona" class="py-24 relative text-white bg-stone-900 overflow-hidden text-center">
+        <div class="absolute inset-0 opacity-30">
+            <img src="https://drive.google.com/thumbnail?id=1Ct7oNOvVSMAWLlAf-ClzszOT0fE-DOs4&sz=w1920" class="w-full h-full object-cover">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-4xl font-bold mb-4">Un Espresso Perfecto en 3 Pasos</h2>
+            <p class="text-stone-300 max-w-2xl mx-auto mb-16">Tecnología inteligente diseñada para ser simple y rápida.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-amber-700 rounded-full flex items-center justify-center text-3xl font-bold mb-6 border-4 border-stone-800">1</div>
+                    <h3 class="text-2xl font-bold mb-3">Añade el Café</h3>
+                    <p class="text-stone-300 text-sm leading-relaxed">Usa tu café molido preferido o coloca tu cápsula favorita (compatible con Nespresso). Tú eliges la intensidad y el aroma.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-amber-700 rounded-full flex items-center justify-center text-3xl font-bold mb-6 border-4 border-stone-800">2</div>
+                    <h3 class="text-2xl font-bold mb-3">Añade el Agua</h3>
+                    <p class="text-stone-300 text-sm leading-relaxed">Vierte agua caliente para un café inmediato, o usa agua fría y deja que la cafetera la caliente automáticamente a 90°C.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-amber-700 rounded-full flex items-center justify-center text-3xl font-bold mb-6 border-4 border-stone-800">3</div>
+                    <h3 class="text-2xl font-bold mb-3">Presiona y Disfruta</h3>
+                    <p class="text-stone-300 text-sm leading-relaxed">Presiona el botón de encendido y en segundos obtendrás un espresso cremoso con cuerpo y aroma profesional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODELOS -->
+    <section id="modelos" class="py-24 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-stone-900">Nuestros Modelos</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-stone-100 p-8 flex flex-col">
+                    <div class="relative w-full h-80 bg-stone-50 rounded-2xl mb-8 flex items-center justify-center overflow-hidden border border-stone-100">
+                        <img id="main-img-me2218" src="https://drive.google.com/thumbnail?id=1qVXPciXEYRt38V5TaWCKFoTW-28-P_-U&sz=w800" class="w-full h-full object-contain p-4 transition-all duration-500">
+                        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-md px-6 py-2 rounded-full flex gap-5 shadow-lg">
+                            <div onclick="changeColor('black', this)" class="color-dot bg-stone-900" title="Negro"></div>
+                            <div onclick="changeColor('white', this)" class="color-dot bg-white border-stone-200" title="Blanco"></div>
+                            <div onclick="changeColor('beige', this)" class="color-dot bg-[#E5D3B3] active" title="Beige"></div>
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-3xl font-bold text-stone-900">ME2218 Portable</h3>
+                            <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter">Premium Kit</span>
+                        </div>
+                        <p class="text-stone-600 mb-6 leading-relaxed">El modelo definitivo para los amantes del café. Incluye kit completo con estuche, cucharilla dosificadora, brocha, tamper y adaptadores.</p>
+                        <ul class="grid grid-cols-2 gap-y-2 gap-x-4 mb-8 text-xs font-semibold text-stone-500 uppercase tracking-widest">
+                            <li><i class="fa-solid fa-bolt text-amber-600 mr-2"></i> 19 Bares</li>
+                            <li><i class="fa-solid fa-battery-full text-amber-600 mr-2"></i> 7800 mAh</li>
+                            <li><i class="fa-solid fa-plug text-amber-600 mr-2"></i> USB-C</li>
+                            <li><i class="fa-solid fa-box text-amber-600 mr-2"></i> Kit Completo</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/59163516131?text=Hola,%20quiero%20más%20información%20del%20modelo%20ME2218" target="_blank" class="block text-center bg-amber-700 text-white py-4 rounded-2xl font-bold transition hover:bg-amber-800 shadow-xl">Pedir Información</a>
+                </div>
+                <div class="bg-stone-900 text-white rounded-3xl overflow-hidden shadow-lg p-8 flex flex-col">
+                    <div class="relative w-full h-80 bg-stone-800 rounded-2xl mb-8 flex items-center justify-center overflow-hidden">
+                        <img src="https://drive.google.com/thumbnail?id=1fgKWcCwwPdufC3XSK0SD2vVNbnCP0O1H&sz=w800" class="w-full h-full object-contain p-4">
+                        <div class="absolute top-4 right-4 bg-stone-700/80 px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Edición Viajera</div>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-3xl font-bold mb-4">ME2604 Essential</h3>
+                        <p class="text-stone-400 mb-6 leading-relaxed">Máxima potencia en el diseño más compacto del mercado. Ideal para quienes priorizan la ligereza en sus expediciones o viajes de negocios.</p>
+                        <ul class="grid grid-cols-1 gap-y-2 mb-8 text-xs font-semibold text-stone-400 uppercase tracking-widest">
+                            <li><i class="fa-solid fa-check text-amber-500 mr-2"></i> Diseño Ultra-Slim</li>
+                            <li><i class="fa-solid fa-check text-amber-500 mr-2"></i> Solo 776g de peso</li>
+                            <li><i class="fa-solid fa-check text-amber-500 mr-2"></i> Calentamiento instantáneo</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/59163516131?text=Hola,%20quiero%20más%20información%20del%20modelo%20ME2604" target="_blank" class="block text-center bg-white text-stone-900 py-4 rounded-2xl font-bold transition hover:bg-stone-200 shadow-xl">Pedir Información</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARA QUIÉN ES IDEAL -->
+    <section class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4 text-stone-900">¿Para quién es ideal?</h2>
+            <div class="w-24 h-1 bg-amber-700 mx-auto rounded-full mb-16"></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-8 bg-stone-50 rounded-3xl border border-stone-100 hover:shadow-xl transition">
+                    <div class="text-5xl mb-4">💼</div>
+                    <h3 class="text-xl font-bold mb-3 text-stone-900">El Profesional</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">Que no puede depender del café de oficina y quiere su espresso perfecto en el escritorio, sin interrumpir su ritmo de trabajo.</p>
+                </div>
+                <div class="p-8 bg-stone-50 rounded-3xl border border-stone-100 hover:shadow-xl transition">
+                    <div class="text-5xl mb-4">✈️</div>
+                    <h3 class="text-xl font-bold mb-3 text-stone-900">El Viajero</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">Que viaja constantemente por trabajo o placer y no está dispuesto a sacrificar su café favorito, sin importar dónde esté.</p>
+                </div>
+                <div class="p-8 bg-stone-50 rounded-3xl border border-stone-100 hover:shadow-xl transition">
+                    <div class="text-5xl mb-4">🏔️</div>
+                    <h3 class="text-xl font-bold mb-3 text-stone-900">El Aventurero</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">Que disfruta la naturaleza y el outdoor, pero tampoco renuncia a un buen espresso en la montaña, el río o el campo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARACIÓN DE MODELOS -->
+    <section class="py-24 bg-stone-50">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4 text-stone-900">¿Cuál modelo es para ti?</h2>
+            <div class="w-24 h-1 bg-amber-700 mx-auto rounded-full mb-16"></div>
+            <div class="overflow-hidden rounded-3xl shadow-xl border border-stone-200">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="bg-stone-900 text-white">
+                            <th class="p-5 text-left font-bold">Característica</th>
+                            <th class="p-5 text-center font-bold">ME2218 Portable<br><span class="text-amber-400 text-xs font-normal">Premium Kit</span></th>
+                            <th class="p-5 text-center font-bold">ME2604 Essential<br><span class="text-amber-400 text-xs font-normal">Edición Viajera</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-stone-100 bg-white">
+                            <td class="p-5 font-medium text-stone-700">Tamaño</td>
+                            <td class="p-5 text-center text-amber-700 font-bold">248mm × 75mm</td>
+                            <td class="p-5 text-center text-stone-600">248mm × 75mm</td>
+                        </tr>
+                        <tr class="border-b border-stone-100 bg-stone-50">
+                            <td class="p-5 font-medium text-stone-700">Peso</td>
+                            <td class="p-5 text-center text-amber-700 font-bold">802g</td>
+                            <td class="p-5 text-center text-stone-600">776g</td>
+                        </tr>
+                        <tr class="border-b border-stone-100 bg-white">
+                            <td class="p-5 font-medium text-stone-700">Presión máxima</td>
+                            <td class="p-5 text-center text-amber-700 font-bold">19 bares</td>
+                            <td class="p-5 text-center text-stone-600">19 bares</td>
+                        </tr>
+                        <tr class="border-b border-stone-100 bg-stone-50">
+                            <td class="p-5 font-medium text-stone-700">Temperatura NTC</td>
+                            <td class="p-5 text-center text-amber-700 font-bold">92°C</td>
+                            <td class="p-5 text-center text-stone-600">85°C</td>
+                        </tr>
+                        <tr class="border-b border-stone-100 bg-white">
+                            <td class="p-5 font-medium text-stone-700">Tazas por carga (agua caliente)</td>
+                            <td class="p-5 text-center text-amber-700 font-bold">150–200 tazas</td>
+                            <td class="p-5 text-center text-stone-600">80–100 tazas</td>
+                        </tr>
+                        <tr class="border-b border-stone-100 bg-stone-50">
+                            <td class="p-5 font-medium text-stone-700">Tazas por carga (agua fría)</td>
+                            <td class="p-5 text-center text-amber-700 font-bold">4–5 tazas</td>
+                            <td class="p-5 text-center text-stone-600">3–4 tazas</td>
+                        </tr>
+                        <tr class="border-b border-stone-100 bg-white">
+                            <td class="p-5 font-medium text-stone-700">Ciclos de recarga</td>
+                            <td class="p-5 text-center text-amber-700 font-bold">+1,300 ciclos</td>
+                            <td class="p-5 text-center text-stone-600">+1,000 ciclos</td>
+                        </tr>
+                        <tr class="border-b border-stone-100 bg-stone-50">
+                            <td class="p-5 font-medium text-stone-700">Tiempo de carga</td>
+                            <td class="p-5 text-center text-amber-700 font-bold">120 min (carga rápida)</td>
+                            <td class="p-5 text-center text-stone-600">3–4 horas</td>
+                        </tr>
+                        <tr class="border-b border-stone-100 bg-white">
+                            <td class="p-5 font-medium text-stone-700">Compatible Nespresso</td>
+                            <td class="p-5 text-center text-green-600 font-bold">✓</td>
+                            <td class="p-5 text-center text-green-600 font-bold">✓</td>
+                        </tr>
+                        <tr class="border-b border-stone-100 bg-stone-50">
+                            <td class="p-5 font-medium text-stone-700">Café molido</td>
+                            <td class="p-5 text-center text-green-600 font-bold">✓</td>
+                            <td class="p-5 text-center text-green-600 font-bold">✓</td>
+                        </tr>
+                        <tr class="border-b border-stone-100 bg-white">
+                            <td class="p-5 font-medium text-stone-700">Carga USB-C</td>
+                            <td class="p-5 text-center text-green-600 font-bold">✓</td>
+                            <td class="p-5 text-center text-green-600 font-bold">✓</td>
+                        </tr>
+                        <tr class="bg-stone-50">
+                            <td class="p-5 font-medium text-stone-700">Accesorios incluidos</td>
+                            <td class="p-5 text-center text-amber-700 font-bold text-xs">Máquina + 2 adaptadores + cable USB + cuchara + brocha + tamper + bolsa</td>
+                            <td class="p-5 text-center text-stone-600 text-xs">Máquina + 2 adaptadores cápsula + cable USB</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="bg-amber-700 text-white">
+                            <td class="p-5 font-bold">¿Te interesa?</td>
+                            <td class="p-5 text-center">
+                                <a href="https://wa.me/59163516131?text=Hola!%20Me%20interesa%20el%20modelo%20ME2218%20Premium%20☕" target="_blank" class="bg-white text-amber-700 px-4 py-2 rounded-full font-bold text-xs hover:bg-amber-50 transition">Consultar</a>
+                            </td>
+                            <td class="p-5 text-center">
+                                <a href="https://wa.me/59163516131?text=Hola!%20Me%20interesa%20el%20modelo%20ME2604%20Essential%20☕" target="_blank" class="bg-white text-amber-700 px-4 py-2 rounded-full font-bold text-xs hover:bg-amber-50 transition">Consultar</a>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEOS -->
+    <section id="videos" class="py-24 bg-stone-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4 text-white">Mírala en Acción</h2>
+            <p class="text-stone-400 text-center mb-16 text-lg">Descubre lo fácil y rápido que es preparar tu café perfecto en cualquier lugar.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center max-w-3xl mx-auto">
+                <div class="flex flex-col gap-3 items-center w-full">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl w-full max-w-[300px] mx-auto" style="aspect-ratio: 9/16;">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/vdujWsSJSwg" title="Café molido y cápsula" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p class="text-amber-400 font-semibold text-center text-sm uppercase tracking-widest">Café molido y cápsula ☕💊</p>
+                </div>
+                <div class="flex flex-col gap-3 items-center w-full">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl w-full max-w-[300px] mx-auto" style="aspect-ratio: 9/16;">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/y3T88Te1WwY" title="Uso en exteriores" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p class="text-amber-400 font-semibold text-center text-sm uppercase tracking-widest">Úsala donde quieras 🎒🏔️</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios" class="py-24 bg-stone-50">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4 text-stone-900">Lo que dicen nuestros clientes</h2>
+            <div class="w-24 h-1 bg-amber-700 mx-auto rounded-full mb-16"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-3xl p-8 shadow-lg border border-stone-100">
+                    <div class="flex gap-1 mb-4">
+                        <i class="fa-solid fa-star text-amber-500"></i>
+                        <i class="fa-solid fa-star text-amber-500"></i>
+                        <i class="fa-solid fa-star text-amber-500"></i>
+                        <i class="fa-solid fa-star text-amber-500"></i>
+                        <i class="fa-solid fa-star text-amber-500"></i>
+                    </div>
+                    <p class="text-stone-600 leading-relaxed mb-6 italic">"Funciona perfecto. La llevo todos los días a mi trabajo y en mis viajes fuera de la ciudad. Ya no dependo de ninguna cafetería — mi espresso lo hago yo, donde quiera que esté."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-amber-700 rounded-full flex items-center justify-center text-white font-bold text-lg">B</div>
+                        <div>
+                            <p class="font-bold text-stone-900">Boris</p>
+                            <p class="text-stone-500 text-sm">Santa Cruz, Bolivia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-3xl p-8 shadow-lg border border-stone-100">
+                    <div class="flex gap-1 mb-4">
+                        <i class="fa-solid fa-star text-amber-500"></i>
+                        <i class="fa-solid fa-star text-amber-500"></i>
+                        <i class="fa-solid fa-star text-amber-500"></i>
+                        <i class="fa-solid fa-star text-amber-500"></i>
+                        <i class="fa-solid fa-star text-amber-500"></i>
+                    </div>
+                    <p class="text-stone-600 leading-relaxed mb-6 italic">"Quedé tan contento con mi cafetera que mis amigos me pidieron que les consiguiera una. Terminé comprando tres — para mí y para dos amigos más. Todos felices con el resultado."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-amber-700 rounded-full flex items-center justify-center text-white font-bold text-lg">J</div>
+                        <div>
+                            <p class="font-bold text-stone-900">José María</p>
+                            <p class="text-stone-500 text-sm">La Paz, Bolivia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- URGENCIA -->
+    <section class="py-16 bg-amber-700">
+        <div class="max-w-4xl mx-auto px-4 text-center text-white">
+            <p class="uppercase tracking-widest text-sm font-semibold mb-3 text-amber-200">Stock limitado</p>
+            <h2 class="text-4xl font-bold mb-4">¡Últimas unidades disponibles!</h2>
+            <p class="text-lg text-amber-100 mb-8 max-w-2xl mx-auto">No dejes pasar esta oportunidad. Contamos con muy pocas unidades en Santa Cruz. Asegura la tuya hoy antes de que se agoten.</p>
+            <a href="https://wa.me/59163516131?text=Hola%20Leonardo!%20Vi%20que%20quedan%20pocas%20unidades%20y%20quiero%20reservar%20la%20mía%20☕" target="_blank" class="inline-block bg-white text-amber-700 px-10 py-4 rounded-full font-bold text-lg shadow-xl hover:bg-amber-50 transition">Reservar mi cafetera ahora</a>
+        </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section id="faq" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4 text-stone-900">Preguntas Frecuentes</h2>
+            <div class="w-24 h-1 bg-amber-700 mx-auto rounded-full mb-16"></div>
+            <div class="space-y-4">
+                <div class="faq-item border border-stone-200 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-6 text-left font-bold text-stone-800 hover:bg-stone-50 transition">
+                        <span>¿Tiene garantía?</span>
+                        <i class="fa-solid fa-chevron-down text-amber-700 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-stone-600 leading-relaxed">Sí. Todos nuestros modelos incluyen <strong>1 año de garantía</strong> contra defectos de fabricación. Tu inversión está protegida.</div>
+                </div>
+                <div class="faq-item border border-stone-200 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-6 text-left font-bold text-stone-800 hover:bg-stone-50 transition">
+                        <span>¿Hacen envíos a otras ciudades?</span>
+                        <i class="fa-solid fa-chevron-down text-amber-700 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-stone-600 leading-relaxed">¡Claro que sí! Coordinamos envíos por flota a <strong>todo Bolivia</strong> — La Paz, Cochabamba, Sucre, Oruro, Potosí y más. El costo varía según destino, consúltanos por WhatsApp.</div>
+                </div>
+                <div class="faq-item border border-stone-200 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-6 text-left font-bold text-stone-800 hover:bg-stone-50 transition">
+                        <span>¿Es compatible con cápsulas Nespresso?</span>
+                        <i class="fa-solid fa-chevron-down text-amber-700 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-stone-600 leading-relaxed">Sí, es <strong>100% compatible con cápsulas Nespresso</strong>. También puedes usar café molido de tu preferencia.</div>
+                </div>
+                <div class="faq-item border border-stone-200 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-6 text-left font-bold text-stone-800 hover:bg-stone-50 transition">
+                        <span>¿Cuántas tazas rinde una carga de batería?</span>
+                        <i class="fa-solid fa-chevron-down text-amber-700 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-stone-600 leading-relaxed">
+                        <strong>ME2218 Portable:</strong> 150–200 tazas con agua caliente, 4–5 tazas calentando desde fría.<br><br>
+                        <strong>ME2604 Essential:</strong> 80–100 tazas con agua caliente, 3–4 tazas calentando desde fría.
+                    </div>
+                </div>
+                <div class="faq-item border border-stone-200 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-6 text-left font-bold text-stone-800 hover:bg-stone-50 transition">
+                        <span>¿Cuánto dura la batería a largo plazo?</span>
+                        <i class="fa-solid fa-chevron-down text-amber-700 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-stone-600 leading-relaxed">
+                        <strong>ME2218:</strong> más de 1,300 ciclos de recarga.<br>
+                        <strong>ME2604:</strong> más de 1,000 ciclos de recarga.<br><br>
+                        Recargándola una vez al día, la batería te dura más de 3 años.
+                    </div>
+                </div>
+                <div class="faq-item border border-stone-200 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-6 text-left font-bold text-stone-800 hover:bg-stone-50 transition">
+                        <span>¿Cómo se carga la cafetera?</span>
+                        <i class="fa-solid fa-chevron-down text-amber-700 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-stone-600 leading-relaxed">Ambos modelos se cargan mediante <strong>cable USB-C</strong>, igual que tu celular. Puedes cargarla en casa, en la oficina o en el auto.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BARISTA VIRTUAL -->
+    <section id="barista" class="py-24 bg-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-16 items-center">
+            <div class="lg:w-1/2 text-center lg:text-left">
+                <div class="inline-flex p-3 bg-amber-200 text-amber-800 rounded-lg mb-6 shadow-sm">
+                    <i class="fa-solid fa-wand-magic-sparkles text-2xl"></i>
+                </div>
+                <h2 class="text-4xl font-bold mb-4 text-stone-900">Tu Barista Virtual ✨</h2>
+                <p class="text-stone-600 mb-8 text-lg">Dime qué ingredientes tienes a la mano y crearé una receta exclusiva para tu cafetera Import-Inter.</p>
+                <div class="bg-white p-8 rounded-3xl shadow-2xl border border-stone-200 text-left">
+                    <label class="block text-sm font-bold text-stone-500 mb-2 uppercase tracking-widest">Ingredientes Disponibles</label>
+                    <input type="text" id="ai-ingredients" placeholder="Ej: hielo, leche y canela..."
+                        class="w-full px-6 py-4 rounded-xl border-2 border-stone-100 mb-4 focus:border-amber-600 outline-none transition-all"
+                        onkeydown="if(event.key==='Enter') generateRecipe()">
+                    <button onclick="generateRecipe()" id="ai-btn" class="bg-amber-700 text-white w-full py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-amber-800 transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-mug-hot"></i> Generar Receta Mágica
+                    </button>
+                    <div id="ai-loading" class="hidden mt-8 text-center text-amber-700">
+                        <i class="fa-solid fa-mug-hot fa-bounce text-4xl mb-2"></i>
+                        <p class="font-medium">El barista está mezclando los sabores...</p>
+                    </div>
+                    <div id="ai-result" class="hidden mt-8 p-6 bg-stone-50 rounded-2xl border-2 border-amber-100 max-h-96 overflow-y-auto shadow-inner"></div>
+                </div>
+            </div>
+            <div class="lg:w-1/2 w-full">
+                <img src="https://drive.google.com/thumbnail?id=1In_ZDTO_0h8TP72aaNLTXmzS-K09HyGj&sz=w1000" class="rounded-3xl shadow-2xl h-[500px] w-full object-cover border-8 border-white">
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contacto" class="bg-stone-900 text-stone-400 py-16 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-center gap-4 mb-8">
+                <img src="https://drive.google.com/thumbnail?id=1hnIEHyDa9exXI7LEUd2wTYBFjZ04zuLY&sz=w100" alt="Logo Import-Inter" class="h-16 w-auto object-contain">
+                <span class="font-bold text-2xl text-white tracking-widest uppercase">IMPORT-INTER</span>
+            </div>
+            <div class="flex flex-col md:flex-row justify-center gap-12 border-y border-stone-800 py-12">
+                <div>
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-widest">Consultas WhatsApp</h4>
+                    <p class="text-amber-500 text-2xl font-bold">+591 63516131</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-widest">Ubicación</h4>
+                    <p class="text-stone-300">Santa Cruz de la Sierra, Bolivia</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-3 uppercase text-xs tracking-widest">Envíos Nacionales</h4>
+                    <p class="text-stone-300">A toda Bolivia — La Paz, Cochabamba,<br>Sucre, Oruro, Potosí y más.</p>
+                </div>
+            </div>
+            <p class="mt-12 text-[10px] uppercase tracking-[0.4em] opacity-50">© 2026 Import-Inter. Calidad superior en cada gota.</p>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a id="whatsapp-btn" href="https://wa.me/59163516131?text=Hola%20Leonardo!%20Vi%20tu%20página%20y%20me%20interesa%20la%20cafetera%20portátil%20☕"
+       target="_blank"
+       class="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-green-500 text-white px-5 py-3 rounded-full shadow-2xl transition-all duration-300"
+       title="Escríbenos por WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.855L.057 23.854a.5.5 0 0 0 .589.589l6.057-1.528A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9a9.866 9.866 0 0 1-5.031-1.378l-.36-.214-3.733.941.941-3.733-.214-.36A9.866 9.866 0 0 1 2.1 12C2.1 6.534 6.534 2.1 12 2.1c5.466 0 9.9 4.434 9.9 9.9 0 5.466-4.434 9.9-9.9 9.9z"/>
+        </svg>
+        <span class="font-bold text-sm hidden sm:block">¡Escríbenos!</span>
+    </a>
+
+    <script>
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function changeColor(color, element) {
+            const img = document.getElementById('main-img-me2218');
+            document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+            element.classList.add('active');
+            if (color === 'black') {
+                img.src = "https://drive.google.com/thumbnail?id=1Wk48QnCXMtC5E_ZkdxwXVyfCLg5THuSF&sz=w800";
+            } else if (color === 'white') {
+                img.src = "https://drive.google.com/thumbnail?id=1j48SDUtvM6QQUmebQf-j-pDJW8HWAHN3&sz=w800";
+            } else {
+                img.src = "https://drive.google.com/thumbnail?id=1qVXPciXEYRt38V5TaWCKFoTW-28-P_-U&sz=w800";
+            }
+        }
+
+        function toggleFaq(btn) {
+            const answer = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            const isOpen = !answer.classList.contains('hidden');
+            document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+            document.querySelectorAll('.faq-item i').forEach(i => i.style.transform = '');
+            if (!isOpen) {
+                answer.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // BARISTA VIRTUAL
+        const PROXY_URL = "https://script.google.com/macros/s/AKfycbwh7Ndo1pL56VM2__xjNSBjw6KzzLfVfQlfOcRkysS6rmT19_xb7tLDpIYnB2RNkVIk/exec";
+
+        async function generateRecipe() {
+            const input = document.getElementById('ai-ingredients').value.trim();
+            const btn = document.getElementById('ai-btn');
+            const resultDiv = document.getElementById('ai-result');
+            const loading = document.getElementById('ai-loading');
+            if (!input) return;
+            btn.disabled = true;
+            loading.classList.remove('hidden');
+            resultDiv.classList.add('hidden');
+            resultDiv.innerHTML = '';
+            try {
+                const response = await fetch(PROXY_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ ingredients: input })
+                });
+                const data = await response.json();
+                if (data.error) throw new Error(data.error);
+                resultDiv.innerHTML = data.recipe;
+                resultDiv.classList.remove('hidden');
+            } catch (e) {
+                resultDiv.innerHTML = `<p class="font-bold text-red-500 mb-1">Error del Barista ☕</p><p class="text-stone-600">No se pudo conectar. Intenta de nuevo en un momento.</p>`;
+                resultDiv.classList.remove('hidden');
+            } finally {
+                btn.disabled = false;
+                loading.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
